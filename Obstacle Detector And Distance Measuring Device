@@ -1,0 +1,39 @@
+Experiment 6 - Obstacle Detector And Distance Measuring Device
+In this experiment we designed an Obstacle Detector And Distance Measuring Device with the help of an Arduino UNO.
+Aim:
+To design a Obstacle Detector And Distance Measuring Device.
+
+Apparatus:
+Arduino Board, LED, Resistance - 220ohm, Breadboard, Wires, Ultrasonic Distance Sensor.
+Arduino Code:
+//Obstacle Detector And Distance Measuring Device
+const int trig = 10;
+const int echo = 9;
+long duration;
+int distance;
+
+void setup()
+{
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+    
+  duration= pulseIn(echo, HIGH);
+  distance= duration*0.034/2;
+  
+  Serial.print("Distance: ");
+  Serial.println(distance);
+}
+
+## Result:
+The obstacle and its distance was verified after uploading the program.
