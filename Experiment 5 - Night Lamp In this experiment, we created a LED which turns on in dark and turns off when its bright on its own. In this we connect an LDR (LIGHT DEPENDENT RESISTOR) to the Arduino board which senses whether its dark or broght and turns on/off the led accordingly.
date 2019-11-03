@@ -1,0 +1,25 @@
+Experiment 5 - Night Lamp
+In this experiment, we created a LED which turns on in dark and turns off when its bright on its own. In this we connect an LDR (LIGHT DEPENDENT RESISTOR) to the Arduino board which senses whether its dark or broght and turns on/off the led accordingly.
+Experiment 5 – Night Lamp
+Aim:
+To design an LED using Arduino such that when its dark the LED starts glowing and when its bright, the LED stops glowing.
+
+Apparatus:
+Arduino Board, LED, Resistance - 220ohm, Breadboard, Wires, LDR (Light Dependent Resistor).
+const int lamp = 7;
+void setup() {
+Serial.begin(9600);
+pinMode(lamp, OUTPUT);
+}
+void loop() {
+int c = analogRead(A0);
+delay(500);
+if ( c<300){
+digitalWrite(lamp,HIGH);
+delay(1000);
+}
+else {
+digitalWrite(lamp,LOW);
+delay(1000);
+}
+}
